@@ -1,11 +1,12 @@
 'use client';
 
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { navLinks } from '@/constants';
-import { SignedIn, SignedOut, UserButton } from '@clerk/nextjs';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+
+import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { SignedIn, SignedOut, UserButton } from '@clerk/nextjs';
+import { navLinks } from '@/constants';
 import { Button } from '../ui/button';
 
 const MobileNav = () => {
