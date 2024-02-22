@@ -35,7 +35,7 @@ export const Collection = ({
 }) => {
     const router = useRouter();
     const searchParams = useSearchParams();
-    const [imageSearch, useImageSearch] = useState(images);
+    const [imageSearch, setImageSearch] = useState(images);
     // PAGINATION HANDLER
     const onPageChange = (action: string) => {
         const pageValue =
@@ -52,7 +52,7 @@ export const Collection = ({
 
     useEffect(() => {
         if (searchQuery) {
-            useImageSearch(
+            setImageSearch(
                 images.filter((image) =>
                     image.title
                         .toLowerCase()
@@ -60,7 +60,7 @@ export const Collection = ({
                 ),
             );
         } else {
-            useImageSearch(images);
+            setImageSearch(images);
         }
     }, [searchQuery]);
 
