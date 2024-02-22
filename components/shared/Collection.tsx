@@ -18,21 +18,24 @@ import { formUrlQuery } from '@/lib/utils';
 import { Button } from '../ui/button';
 
 import { Search } from './Search';
+import { useEffect, useState } from 'react';
 
 export const Collection = ({
     hasSearch = false,
     images,
+    searchQuery = '',
     totalPages = 1,
     page,
 }: {
     images: IImage[];
     totalPages?: number;
     page: number;
+    searchQuery?: string;
     hasSearch?: boolean;
 }) => {
     const router = useRouter();
     const searchParams = useSearchParams();
-
+    const [imageSearch, useImageSearch] = useState(images);
     // PAGINATION HANDLER
     const onPageChange = (action: string) => {
         const pageValue =
@@ -47,6 +50,20 @@ export const Collection = ({
         router.push(newUrl, { scroll: false });
     };
 
+    useEffect(() => {
+        if (searchQuery) {
+            useImageSearch(
+                images.filter((image) =>
+                    image.title
+                        .toLowerCase()
+                        .includes(searchQuery.toLowerCase()),
+                ),
+            );
+        } else {
+            useImageSearch(images);
+        }
+    }, [searchQuery]);
+
     return (
         <>
             <div className="collection-heading">
@@ -54,9 +71,9 @@ export const Collection = ({
                 {hasSearch && <Search />}
             </div>
 
-            {images.length > 0 ? (
+            {imageSearch.length > 0 ? (
                 <ul className="collection-list">
-                    {images.map((image) => (
+                    {imageSearch.map((image) => (
                         <Card image={image} key={image._id} />
                     ))}
                 </ul>
