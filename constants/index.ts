@@ -191,3 +191,12 @@ export const defaultValues = {
 };
 
 export const creditFee = -1;
+
+export const myBank = {
+    BANK_ID: 'MB',
+    ACCOUNT_NO: '5446446431984',
+    TEMPLATE: 'qr_only',
+};
+
+export const apiIncomingHistory =
+    'https://script.google.com/macros/s/AKfycbzNA9OdFSL72ntWDuEbsK6PKrfuRARX7MwijtDl1X3p1nPhQebAIDxHFHLc29AXDg5o/exec';
