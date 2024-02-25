@@ -47,7 +47,7 @@ const Checkout = ({
             }
         }, 20000);
         return () => clearInterval(timeId);
-    }, [isCheckout]);
+    });
 
     const onCheckout = async () => {
         try {
@@ -87,7 +87,8 @@ const Checkout = ({
                         duration: 5000,
                         className: 'success-toast',
                     });
-                    router.prefetch('/profile');
+                    location.reload();
+                    router.push('/profile');
                 } else {
                     toast({
                         title: 'Thanh toán thất bại. Vui lòng liên hệ ngay bộ phận hỗ trợ của chúng tôi',
