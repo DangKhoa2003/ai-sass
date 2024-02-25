@@ -48,6 +48,7 @@ export const plans = [
         icon: '/assets/icons/free-plan.svg',
         price: 0,
         credits: 20,
+        isDisable: false,
         inclusions: [
             {
                 label: '20 Free Credits',
@@ -73,6 +74,7 @@ export const plans = [
         icon: '/assets/icons/free-plan.svg',
         price: 40,
         credits: 120,
+        isDisable: false,
         inclusions: [
             {
                 label: '120 Credits',
@@ -98,6 +100,7 @@ export const plans = [
         icon: '/assets/icons/free-plan.svg',
         price: 199,
         credits: 2000,
+        isDisable: false,
         inclusions: [
             {
                 label: '2000 Credits',

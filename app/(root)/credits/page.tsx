@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { plans } from '@/constants';
 import { getUserById } from '@/lib/actions/user.actions';
 import Checkout from '@/components/shared/Checkout';
+import { getTransactionById } from '@/lib/actions/transaction.action';
 
 const Credits = async () => {
     const { userId } = auth();
@@ -14,6 +15,24 @@ const Credits = async () => {
     if (!userId) redirect('/sign-in');
 
     const user = await getUserById(userId);
+
+    const plansNew = plans.map((plan) => {
+        if (user.isPro && plan.name === 'Pro Package') {
+            return {
+                ...plan,
+                isDisable: true,
+            };
+        }
+
+        if (user.isPremium && plan.name === 'Premium Package') {
+            return {
+                ...plan,
+                isDisable: true,
+            };
+        }
+
+        return plan;
+    });
 
     return (
         <>
@@ -24,7 +43,7 @@ const Credits = async () => {
 
             <section>
                 <ul className="credits-list">
-                    {plans.map((plan) => (
+                    {plansNew.map((plan) => (
                         <li key={plan.name} className="credits-item">
                             <div className="flex-center flex-col gap-3">
                                 <Image
@@ -82,6 +101,8 @@ const Credits = async () => {
                                         amount={plan.price}
                                         credits={plan.credits}
                                         buyerId={user._id}
+                                        isDisable={plan.isDisable}
+                                        user={user}
                                     />
                                 </SignedIn>
                             )}

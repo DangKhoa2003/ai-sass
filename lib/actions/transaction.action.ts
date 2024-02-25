@@ -22,3 +22,17 @@ export async function createTransaction(transaction: CreateTransactionParams) {
         handleError(error);
     }
 }
+
+export async function getTransactionById(stripeId: string) {
+    try {
+        await connectToDatabase();
+
+        const transaction = await Transaction.find({ stripeId: stripeId });
+
+        if (!transaction) throw new Error('Transaction not found');
+
+        return JSON.parse(JSON.stringify(transaction));
+    } catch (error) {
+        handleError(error);
+    }
+}

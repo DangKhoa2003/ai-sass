@@ -1,5 +1,5 @@
 'use client';
-
+import { v4 as uuidv4 } from 'uuid';
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
@@ -18,22 +18,27 @@ import {
 import { Copy, Mail, PhoneCall, Map } from 'lucide-react';
 import { handleError } from '@/lib/utils';
 import { createTransaction } from '@/lib/actions/transaction.action';
-
+import { updateUser } from '@/lib/actions/user.actions';
 
 const Checkout = ({
     plan,
     amount,
     credits,
     buyerId,
+    user,
+    isDisable,
 }: {
     plan: string;
     amount: number;
     credits: number;
     buyerId: string;
+    user: CreateUserParams;
+    isDisable: boolean;
 }) => {
     const { toast } = useToast();
     const [isCheckout, setIsCheckout] = useState(false);
     const router = useRouter();
+
     useEffect(() => {
         const timeId = setInterval(() => {
             if (isCheckout) {
@@ -41,7 +46,6 @@ const Checkout = ({
                 setIsCheckout(false);
             }
         }, 20000);
-
         return () => clearInterval(timeId);
     }, [isCheckout]);
 
@@ -56,13 +60,26 @@ const Checkout = ({
                 lastPaid.content.includes(buyerId)
             ) {
                 const transaction = {
-                    stripeId: buyerId,
+                    stripeId: uuidv4(),
                     amount: amount,
                     plan: plan,
                     credits: credits,
                     buyerId: buyerId,
                     createdAt: new Date(),
                 };
+
+                const newUser = {
+                    firstName: user.firstName,
+                    lastName: user.lastName,
+                    username: user.username,
+                    photo: user.photo,
+                    isPro: user.isPro || plan === 'Pro Package' ? true : false,
+                    isPremium:
+                        user.isPremium || plan === 'Premium Package'
+                            ? true
+                            : false,
+                };
+                await updateUser(user.clerkId, newUser);
                 const newTransaction = await createTransaction(transaction);
                 if (newTransaction) {
                     toast({
@@ -70,7 +87,7 @@ const Checkout = ({
                         duration: 5000,
                         className: 'success-toast',
                     });
-                    router.push('/profile');
+                    router.prefetch('/profile');
                 } else {
                     toast({
                         title: 'Thanh toán thất bại. Vui lòng liên hệ ngay bộ phận hỗ trợ của chúng tôi',
@@ -106,7 +123,8 @@ const Checkout = ({
                     onClick={() => {
                         setIsCheckout(true);
                     }}
-                    className="w-full rounded-full bg-purple-gradient bg-cover text-white py-2"
+                    disabled={isDisable}
+                    className="w-full rounded-full bg-purple-gradient bg-cover text-white py-2 disabled:cursor-not-allowed disabled:bg-none disabled:bg-black/40"
                 >
                     Buy Credit
                 </SheetTrigger>

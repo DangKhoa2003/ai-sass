@@ -1,4 +1,5 @@
 import { Schema, model, models } from 'mongoose';
+import { boolean } from 'zod';
 
 const UserSchema = new Schema({
     clerkId: {
@@ -33,6 +34,14 @@ const UserSchema = new Schema({
     creditBalance: {
         type: Number,
         default: 20,
+    },
+    isPro: {
+        type: Boolean,
+        default: false,
+    },
+    isPremium: {
+        type: Boolean,
+        default: false,
     },
 });
 
