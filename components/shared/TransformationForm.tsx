@@ -340,7 +340,7 @@ const TransformationForm = ({
                 <div className="flex flex-col gap-4">
                     <Button
                         type="button"
-                        className="submit-button capitalize"
+                        className="apply-button capitalize"
                         disabled={isTransforming || newTransformation === null}
                         onClick={onTransformHandler}
                     >

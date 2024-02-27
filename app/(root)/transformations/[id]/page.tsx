@@ -35,7 +35,7 @@ const ImageDetails = async ({ params: { id } }: SearchParamProps) => {
                         </p>
                         <div className="p-14-medium md:p-16-medium flex gap-2 ">
                             <p className="text-dark-600">Prompt:</p>
-                            <p className=" capitalize text-purple-400">
+                            <p className=" capitalize text-primary">
                                 {image.prompt}
                             </p>
                         </div>
@@ -49,7 +49,7 @@ const ImageDetails = async ({ params: { id } }: SearchParamProps) => {
                         </p>
                         <div className="p-14-medium md:p-16-medium flex gap-2">
                             <p className="text-dark-600">Color:</p>
-                            <p className=" capitalize text-purple-400">
+                            <p className=" capitalize text-primary">
                                 {image.color}
                             </p>
                         </div>
@@ -63,7 +63,7 @@ const ImageDetails = async ({ params: { id } }: SearchParamProps) => {
                         </p>
                         <div className="p-14-medium md:p-16-medium flex gap-2">
                             <p className="text-[#0D1221]">Aspect Ratio:</p>
-                            <p className=" capitalize text-purple-400">
+                            <p className=" capitalize text-primary">
                                 {image.aspectRatio}
                             </p>
                         </div>

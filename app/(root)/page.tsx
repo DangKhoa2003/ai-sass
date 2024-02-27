@@ -4,7 +4,6 @@ import { Suspense, lazy } from 'react';
 
 import { Collection } from '@/components/shared/Collection';
 
-
 const SplineCustom = lazy(() => import('@/components/shared/SplineCustom'));
 import { navLinks } from '@/constants';
 import { getAllImages } from '@/lib/actions/image.actions';
@@ -23,7 +22,7 @@ const Home = async ({ searchParams }: SearchParamProps) => {
 
             <section className="home">
                 <ul className="flex-center w-full gap-20">
-                    {navLinks.slice(1, 5).map((link) => (
+                    {navLinks.slice(1, 6).map((link) => (
                         <Link
                             key={link.route}
                             href={link.route}
@@ -51,7 +50,7 @@ const Home = async ({ searchParams }: SearchParamProps) => {
                     searchQuery={searchQuery}
                     totalPages={images?.totalPage}
                     page={page}
-                    heading="✨ Recent Edits"
+                    heading="Recent Edits"
                 />
             </section>
         </>

@@ -73,8 +73,8 @@ module.exports = {
                 'purple-gradient': "url('/assets/images/gradient-bg.svg')",
                 'dark-gradient':
                     'linear-gradient(to right, #666, #444, #0D1221)',
-                'pink-gradient':
-                    'linear-gradient(245deg, #ffb8d0, #df7da6)',
+                'pink-gradient': 'linear-gradient(245deg, #ffb8d0, #df7da6)',
+                'blue-gradient': 'linear-gradient(45deg, #00fdff, #2979ff)',
                 banner: "url('/assets/images/banner-bg.png')",
             },
             borderRadius: {
