@@ -8,6 +8,7 @@ import { plans } from '@/constants';
 import { getUserById } from '@/lib/actions/user.actions';
 import Checkout from '@/components/shared/Checkout';
 import { getTransactionById } from '@/lib/actions/transaction.action';
+import { formatter } from '@/lib/utils';
 
 const Credits = async () => {
     const { userId } = auth();
@@ -41,7 +42,7 @@ const Credits = async () => {
                 subtitle="Choose a credit package that suits your needs!"
             />
 
-            <section>
+            <section className="text-[#0D1221]">
                 <ul className="credits-list">
                     {plansNew.map((plan) => (
                         <li key={plan.name} className="credits-item">
@@ -52,11 +53,11 @@ const Credits = async () => {
                                     width={50}
                                     height={50}
                                 />
-                                <p className="p-20-semibold mt-2 text-purple-500">
+                                <p className="p-20-semibold mt-2 text-primary">
                                     {plan.name}
                                 </p>
                                 <p className="h1-semibold text-dark-600">
-                                    ${plan.price}
+                                    {formatter.format(plan.price)}
                                 </p>
                                 <p className="p-16-regular">
                                     {plan.credits} Credits

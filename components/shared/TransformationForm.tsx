@@ -215,7 +215,7 @@ const TransformationForm = ({
                     control={form.control}
                     name="title"
                     formLabel="Image Title"
-                    className="w-full"
+                    className="w-full text-[#0D1221]"
                     render={({ field }) => (
                         <Input {...field} className="input-field" />
                     )}
@@ -226,7 +226,7 @@ const TransformationForm = ({
                         control={form.control}
                         name="aspectRatio"
                         formLabel="Aspect Ratio"
-                        className="w-full"
+                        className="w-full text-[#0D1221]"
                         render={({ field }) => (
                             <Select
                                 onValueChange={(value) =>
@@ -269,7 +269,7 @@ const TransformationForm = ({
                                     ? 'Object to remove'
                                     : 'Object to recolor'
                             }
-                            className="w-full"
+                            className="w-full text-[#0D1221]"
                             render={({ field }) => (
                                 <Input
                                     value={field.value}
@@ -291,7 +291,7 @@ const TransformationForm = ({
                                 control={form.control}
                                 name="color"
                                 formLabel="Replacement Color"
-                                className="w-full"
+                                className="w-full text-[#0D1221]"
                                 render={({ field }) => (
                                     <Input
                                         value={field.value}

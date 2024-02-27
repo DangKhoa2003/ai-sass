@@ -15,11 +15,14 @@ const Sidebar = () => {
             <div className="flex size-full flex-col gap-4">
                 <Link href="/" className="sidebar-logo">
                     <Image
-                        src="/assets/images/logo-text.svg"
+                        src="/assets/images/ai-logo.png"
                         alt="logo"
-                        width={180}
-                        height={28}
+                        width={50}
+                        height={50}
                     />
+                    <h1 className="text-3xl font-bold ml-2 tracking-widest text-[#0D1221] font-OleoScriptSwashCaps">
+                        AI Pixel
+                    </h1>
                 </Link>
 
                 <nav className="sidebar-nav">
@@ -33,7 +36,7 @@ const Sidebar = () => {
                                         key={link.route}
                                         className={`sidebar-nav_element group ${
                                             isActive
-                                                ? 'bg-purple-gradient text-white'
+                                                ? 'bg-dark-gradient text-white'
                                                 : 'text-gray-700'
                                         }`}
                                     >
@@ -66,7 +69,7 @@ const Sidebar = () => {
                                         key={link.route}
                                         className={`sidebar-nav_element group ${
                                             isActive
-                                                ? 'bg-purple-gradient text-white'
+                                                ? 'bg-dark-gradient text-white'
                                                 : 'text-gray-700'
                                         }`}
                                     >
@@ -90,7 +93,10 @@ const Sidebar = () => {
                             })}
 
                             <li className="flex-center cursor-pointer gap-2 p-4">
-                                <UserButton afterSignOutUrl="/sign-in" showName />
+                                <UserButton
+                                    afterSignOutUrl="/sign-in"
+                                    showName
+                                />
                             </li>
                         </ul>
                     </SignedIn>

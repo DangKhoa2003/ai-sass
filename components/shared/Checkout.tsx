@@ -125,7 +125,7 @@ const Checkout = ({
                         setIsCheckout(true);
                     }}
                     disabled={isDisable}
-                    className="w-full rounded-full bg-purple-gradient bg-cover text-white py-2 disabled:cursor-not-allowed disabled:bg-none disabled:bg-black/40"
+                    className="w-full rounded-full bg-pink-gradient bg-cover text-white py-2 disabled:cursor-not-allowed disabled:bg-none disabled:bg-black/40"
                 >
                     Buy Credit
                 </SheetTrigger>
@@ -220,7 +220,7 @@ const Checkout = ({
                                     </Alert>
                                 </div>
 
-                                <h1 className="text-2xl text-purple-500 font-semibold mt-4">
+                                <h1 className="text-2xl text-primary font-semibold mt-4">
                                     ⚠️ Note:
                                 </h1>
                                 <h1 className="mt-4 text-base text-black">

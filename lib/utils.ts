@@ -32,12 +32,12 @@ const shimmer = (w: number, h: number) => `
 <svg width="${w}" height="${h}" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
   <defs>
     <linearGradient id="g">
-      <stop stop-color="#7986AC" offset="20%" />
+      <stop stop-color="#df7da6" offset="20%" />
       <stop stop-color="#68769e" offset="50%" />
-      <stop stop-color="#7986AC" offset="70%" />
+      <stop stop-color="#df7da6" offset="70%" />
     </linearGradient>
   </defs>
-  <rect width="${w}" height="${h}" fill="#7986AC" />
+  <rect width="${w}" height="${h}" fill="#df7da6" />
   <rect id="r" width="${w}" height="${h}" fill="url(#g)" />
   <animate xlink:href="#r" attributeName="x" from="-${w}" to="${w}" dur="1s" repeatCount="indefinite"  />
 </svg>`;
@@ -109,6 +109,13 @@ export const getImageSize = (
     }
     return image?.[dimension] || 1000;
 };
+
+// Format VND
+export const formatter = new Intl.NumberFormat('vi-VN', {
+    style: 'currency',
+    currency: 'VND',
+    maximumFractionDigits: 3,
+});
 
 // DOWNLOAD IMAGE
 export const download = (url: string, filename: string) => {
