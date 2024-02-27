@@ -26,10 +26,12 @@ export const Collection = ({
     searchQuery = '',
     totalPages = 1,
     page,
+    heading,
 }: {
     images: IImage[];
     totalPages?: number;
     page: number;
+    heading?: string;
     searchQuery?: string;
     hasSearch?: boolean;
 }) => {
@@ -67,7 +69,9 @@ export const Collection = ({
     return (
         <>
             <div className="collection-heading">
-                <h2 className="h2-bold text-[#0D1221]">Recent Edits</h2>
+                <h2 className="h2-bold text-[#0D1221] capitalize">
+                    {heading || '✨ Recent Edits'}
+                </h2>
                 {hasSearch && <Search />}
             </div>
 

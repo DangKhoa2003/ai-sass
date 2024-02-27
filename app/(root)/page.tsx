@@ -51,6 +51,7 @@ const Home = async ({ searchParams }: SearchParamProps) => {
                     searchQuery={searchQuery}
                     totalPages={images?.totalPage}
                     page={page}
+                    heading="✨ Recent Edits"
                 />
             </section>
         </>
