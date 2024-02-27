@@ -8,6 +8,7 @@ import { Button } from '@/components/ui/button';
 import { getImageById } from '@/lib/actions/image.actions';
 import { getImageSize } from '@/lib/utils';
 import { DeleteConfirmation } from '@/components/shared/DeleteConfirmation';
+import TurnBack from '@/components/shared/TurnBack';
 
 const ImageDetails = async ({ params: { id } }: SearchParamProps) => {
     const { userId } = auth();
@@ -16,6 +17,7 @@ const ImageDetails = async ({ params: { id } }: SearchParamProps) => {
 
     return (
         <>
+            <TurnBack />
             <Header title={image.title} />
 
             <section className="mt-5 flex flex-wrap gap-4">
