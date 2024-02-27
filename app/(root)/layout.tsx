@@ -7,7 +7,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         <main className="root">
             <Sidebar />
             <MobileNav />
-            <aside className="h-screen w-72 p-5"></aside>
+            <aside className="h-screen w-72 p-5 lg:block hidden"></aside>
 
             <div className="root-container">
                 <div className="wrapper">{children}</div>
